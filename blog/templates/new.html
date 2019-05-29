@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+{% block contents %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <form method="POST" action="{% url 'create' %}">
+            {% csrf_token%}
+            <h4>제목:</h4><input type="text" name="title"><br>
+            <h4>본문:</h4><textarea cols=40 rows=10 name="body"></textarea><br>
+            <input class="btn btn-dark" type="submit" value="제출">
+        </form>
+    </div>
+
+
+
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+{% extends 'base.html' %}
+{% block contents %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+
+
+<body>
+    {% for blog in blogs.all %}
+    <div class="container">
+        <h1>{{ blog.title }}</h1>
+        <p>{{ blog.pub_date }}</p>
+        <p>{{ blog.summary }}<a href="{%url 'detail' blog.id %}">...more</a></p>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+</body>
+
+</html>

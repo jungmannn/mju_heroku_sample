@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block contents %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script>
+</head>
+
+<br>
+<br>
+
+<body>
+    <div class="container">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <img src="{% static 'picture1.jpg' %}" alt="">
+                <div class="card-body">
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                        </div>
+                        <small class="text-muted">9 mins</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                {% for portfolio in portfolios.all %}
+                  <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm">
+                      <img class="card-img-top" src="{{ portfolio.image.url }}" alt=" Card image cap">
+                      <div class="card-body">
+                        <h4>{{ portfolio.title }}</h4>
+                        <p class="card-text">{{ portfolio.description }}</p>
+                      </div>
+                    </div>
+                  </div>
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+    {% endblock %}
+</body>
+
+</html>
